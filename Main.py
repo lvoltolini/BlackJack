@@ -2,15 +2,21 @@
 # import numpy as np
 # import pandas as pd
 # import seaborn as sns 
+
+# Implement to choose whether 52 ou 312 cards.
 deck_option_52, deck_option_312 = '52', '312'
+
+# Game class.
 class Game:
-    cards = [f"{number}{color}" 
+    cards = np.array([f"{number}{color}" 
     for number in ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
-    for color in ["♤","♡","♢","♧" ]]
-    def __init__(self, dealer, list_of_players):
+    for color in ["♤","♡","♢","♧" ]])
+    def __init__(self, dealer, list_of_players, number_of_decks):
+        self.cards = 
         self.dealer = dealer
         self.players = list_of_players
 
+# Decisions to dealer and players (hit, blackjack, stop)
 class Bets:
     player_or_dealer = True
 
@@ -19,6 +25,8 @@ class Bets:
     
     def Stop(self, amount):
         pass
+    
+# Decisions exclusive to players (double-down, split)
 class Bets_of_players:
     player = True
     pot = 0
@@ -34,8 +42,11 @@ class Bets_of_players:
     def Stop(self, deck):
         pass
 
+# If needed, considerations about Deck.
 class Deck:
+    pass
     
+# Dealer Class
 class Dealer(Bets):
     def __init__(self, money, stop_card):
         self.money = money
@@ -46,6 +57,7 @@ class Dealer(Bets):
     def change_Money(self, amount):
         self.money = self.money + amount
 
+# Players class
 class Player(Bets):
     alive = True
     Breathing = True 
